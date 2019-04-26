@@ -1,0 +1,30 @@
+{
+	"groups": {
+		"pronouns": {
+			"roles": [
+				"She/Her", "He/Him", "They/Them", "None", "Any", "Any but he/him", "Sie/Sier", "Mae/Maer", "Xe/Xem", "Ae/Aer", "Fae/Faer", "Ci/Cir", "Ze/Zir"
+			],
+			"max": -1
+		},
+		"channel_access": {
+			"roles": [
+				"VentingOK", "DiscussionOK", "CWgenOK", "CWmemeOK", "HugboxOptOut", "FoodOptOut",
+				"CG/L", "Fashion"
+			],
+			"max": -1
+		},
+		"community_roles": {
+			"roles": [
+				"Text Adventure", "Art Circle", "Movie Night", "Hunter Sadness Simulator"
+			],
+			"max": -1
+		},
+		"colors": {
+			"roles": [
+				"Clover", "Pear", "Apple Green", "Lime", "Banana", "Spring Yellow", "Honey", "Sherbert", "Tangerine", "Melon", "Peach", "Light Red", "Maple Leaf", "Poppy Red", "Bot Red", "Pomegranate", "Magenta", "Strawberry", "Rose Pink", "Baby Pink", "Lavender", "Wisteria", "Lilac", "Light Purple", "Orchid", "Hot Pink", "Fuchsia", "Berry Red", "Plum", "Darker Purple", "Violet", "Royal Blue", "Azure", "Cornflower", "Periwinkle", "Sky Blue", "Light Blue", "Pale Turquoise", "Mint", "Teal"
+			],
+			"max": 1
+		}
+	},
+	"piper": "loved"
+}
