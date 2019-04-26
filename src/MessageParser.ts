@@ -4,6 +4,9 @@ import Commands from './Commands';
 
 import {beautifyText} from './EmbedFormatter';
 
+/**
+ * Escapes a string containing regex characters so that it is regex-compatible
+ */
 function escapeRegExp(str: string): string
 {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
