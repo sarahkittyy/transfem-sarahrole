@@ -91,10 +91,13 @@ export default class RoleGroups
 		}
 		
 		let promises: Promise<Discord.GuildMember>[] = new Array<Promise<Discord.GuildMember>>();
-		//First, remove all roles from this group.
+		//First, remove all roles if the user is over the cap.
 		group.roles.forEach((role: string) => {
 			let r = this.toRole(role, guild);
-			if(r) promises.push(user.removeRole(this.toRole(role, guild), 'Updating group roles'));
+			if(r && group.max != -1 && user.roles.size > group.max)
+			{
+				promises.push(user.removeRole(this.toRole(role, guild), 'Updating group roles'));
+			}
 		});
 		//Now, append the new role.
 		Promise.all(promises).then((val)=>{
