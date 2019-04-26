@@ -31,6 +31,9 @@ export default class Commands
 	 */
 	private commands: Map<string, Command>;
 	
+	/**
+	 * The command parser options.
+	 */
 	private opts: CommandOpts;
 	
 	/**
