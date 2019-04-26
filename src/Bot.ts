@@ -43,6 +43,10 @@ export default class Bot
 		//Bot events.
 		this.bot.on('ready', ()=>{
 			console.log(`Logged in as ${this.bot.user.username}, ${this.bot.user.id}.`);
+			
+			this.bot.user.setActivity('with sarahpin <3', {
+				type: 'PLAYING'
+			});
 		});
 		
 		this.bot.on('message', (message: Discord.Message) => {
