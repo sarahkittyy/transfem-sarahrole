@@ -2,6 +2,7 @@ import * as Discord from 'discord.js';
 import * as fs from 'fs';
 
 import Commands from './Commands';
+import MessageParser from './MessageParser';
 
 /**
  * Wrapper for this bot's functionality.
@@ -19,6 +20,11 @@ export default class Bot
 	private commands: Commands;
 	
 	/**
+	 * The message parser.
+	 */
+	private parser: MessageParser;
+	
+	/**
 	 * Init the bot instance.
 	 */
 	public constructor()
@@ -32,7 +38,13 @@ export default class Bot
 		});
 		
 		this.bot.on('message', (message: Discord.Message) => {
-			
+			//Skip messages sent by the bot.
+			if(message.author.id === this.bot.user.id)
+			{
+				return;
+			}
+			console.log(`received message ${message.content}`);
+			this.parser.parse(message, this.commands);
 		});
 		
 		//Read the token from private/token.txt
@@ -43,5 +55,14 @@ export default class Bot
 		
 		//Init the commands.
 		this.commands = new Commands();
+		//Init the message parser.
+		this.parser = new MessageParser();
+		
+		this.commands.addCommand('nyan', {
+			callback: (err, msg)=>{
+				msg.reply('nyan!');
+			},
+			desc: 'nyan command!'
+		});
 	}	
 };
