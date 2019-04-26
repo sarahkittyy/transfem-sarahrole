@@ -2,6 +2,8 @@ import * as Discord from 'discord.js';
 
 import Commands from './Commands';
 
+import {beautifyText} from './EmbedFormatter';
+
 /**
  * Parses messages and calls the appropriate callbacks.
  */
@@ -32,17 +34,12 @@ export default class MessageParser
 			if(!command.runCommand(message, args[0], args.slice(1)))
 			{
 				//Command didn't work.
-				console.log(`${message.content} parsed, not a valid command`);
-			}
-			else
-			{
-				//Command ran successfully.
-				console.log(`command ${args[0]} ran succesfully!`);
+				message.channel.send(beautifyText(`Invalid arguments. Try ${command.opt('prefix')}help ${args[0]} for help!`));	
 			}
 		}
 		else
 		{
-			console.log(`not in command format: ${msg}`);
+			message.channel.send(beautifyText(`Invalid command. Try ${command.opt('prefix')}help for help!`));
 		}
 	}
 };

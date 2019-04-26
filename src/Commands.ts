@@ -184,6 +184,7 @@ export default class Commands
 				{
 					//Error.
 					cmd.callback(new Error('Invalid Args.'), msg);
+					return false;
 				}
 			});
 		}
