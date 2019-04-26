@@ -4,6 +4,8 @@ import * as fs from 'fs';
 import Commands from './Commands';
 import MessageParser from './MessageParser';
 
+import {beautifyText} from './EmbedFormatter';
+
 /**
  * Wrapper for this bot's functionality.
  */
@@ -60,7 +62,7 @@ export default class Bot
 		
 		this.commands.addCommand('nyan', {
 			callback: (err, msg)=>{
-				msg.reply('nyan!');
+				msg.channel.send(beautifyText(`nyan! >w<`));
 			},
 			desc: 'nyan command!'
 		});
