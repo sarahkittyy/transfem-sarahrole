@@ -59,12 +59,5 @@ export default class Bot
 		this.commands = new Commands();
 		//Init the message parser.
 		this.parser = new MessageParser();
-		
-		this.commands.addCommand('nyan', {
-			callback: (err, msg)=>{
-				msg.channel.send(beautifyText(`nyan! >w<`));
-			},
-			desc: 'nyan command!'
-		});
 	}	
 };
