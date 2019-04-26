@@ -78,8 +78,8 @@ export default class Bot
 					type: 'string'
 				}
 			],
-			callback: (err: Error, msg: Discord.Message, role: string) => {
-				this.rolegroups.assignRole(msg, this.bot, role);
+			callback: (err: Error, msg: Discord.Message, ...role: string[]) => {
+				this.rolegroups.assignRole(msg, this.bot, role.join(' '));
 			}
 			
 		});
@@ -93,8 +93,8 @@ export default class Bot
 					type: 'string'
 				}
 			],
-			callback: (err: Error, msg: Discord.Message, role: string) => {
-				this.rolegroups.removeRole(msg, this.bot, role);
+			callback: (err: Error, msg: Discord.Message, ...role: string[]) => {
+				this.rolegroups.removeRole(msg, this.bot, role.join(' '));
 			}
 		});
 	}	

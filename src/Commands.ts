@@ -191,6 +191,7 @@ export default class Commands
 					return 'args';
 				}
 			});
+			newArgs.push(...args.slice(cmd.args.length));
 		}
 		else
 		{
