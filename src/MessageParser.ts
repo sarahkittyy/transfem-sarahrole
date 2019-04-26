@@ -24,7 +24,10 @@ export default class MessageParser
 	{
 		//Check if the message starts with the cmd prefix.
 		let msg: string = message.content;
-		if(msg.startsWith(command.opt('prefix')))
+		
+		let re = new RegExp(`^${command.opt('prefix')}\w*`);
+		
+		if(re.test(msg))
 		{
 			//Remove the prefix.
 			msg = msg.substr(command.opt('prefix').length);
