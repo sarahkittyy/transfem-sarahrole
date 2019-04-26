@@ -9,7 +9,7 @@
 		"channel_access": {
 			"roles": [
 				"VentingOK", "DiscussionOK", "CWgenOK", "CWmemeOK", "HugboxOptOut", "FoodOptOut",
-				"CG/L", "Fashion"
+				"CG/L"
 			],
 			"max": -1
 		},
