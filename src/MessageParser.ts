@@ -31,15 +31,17 @@ export default class MessageParser
 			//Split at the space key..
 			let args = msg.split(' ');
 			//Try to run the command.
-			if(!command.runCommand(message, args[0], args.slice(1)))
+			let state = command.runCommand(message, args[0], args.slice(1));
+			if(state === 'args')
 			{
 				//Command didn't work.
 				message.channel.send(beautifyText(`Invalid arguments. Try ${command.opt('prefix')}help ${args[0]} for help!`));	
 			}
-		}
-		else
-		{
-			message.channel.send(beautifyText(`Invalid command. Try ${command.opt('prefix')}help for help!`));
+			else if(state === 'none')
+			{
+				//Command doesn't exist.
+				message.channel.send(beautifyText(`Command doesn't exist. Try ${command.opt('prefix')}help for help!`));
+			}
 		}
 	}
 };

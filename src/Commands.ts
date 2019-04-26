@@ -154,13 +154,13 @@ export default class Commands
 	/**
 	 * Run the given command.
 	 */
-	public runCommand(msg: Discord.Message, name: string, ...args: any[]): boolean
+	public runCommand(msg: Discord.Message, name: string, ...args: any[]): 'none' | 'args' | 'good'
 	{
 		//Grab the command.
 		let cmd: Command = this.commands.get(name);
 		if(!cmd)
 		{
-			return false;
+			return 'none';
 		}
 		
 		let newArgs: any[] = [];
@@ -184,7 +184,7 @@ export default class Commands
 				{
 					//Error.
 					cmd.callback(new Error('Invalid Args.'), msg);
-					return false;
+					return 'args';
 				}
 			});
 		}
@@ -195,7 +195,7 @@ export default class Commands
 		
 		//Run the callback with the given args.
 		cmd.callback(null, msg, ...newArgs);
-		return true;
+		return 'good';
 	}
 	
 };
