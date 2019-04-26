@@ -3,7 +3,8 @@
 		"allowJs": true,
 		"noImplicitAny": true,
 		"target": "es5",
-		"suppressImplicitAnyIndexErrors": true
+		"suppressImplicitAnyIndexErrors": true,
+		"downlevelIteration": true
 	},
 	"exclude": ["gulpfile.js"],
 	"include": ["src/**/*.ts"],
