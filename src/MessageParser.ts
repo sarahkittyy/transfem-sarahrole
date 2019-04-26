@@ -4,9 +4,9 @@ import Commands from './Commands';
 
 import {beautifyText} from './EmbedFormatter';
 
-function escapeRegExp(text: string): string
+function escapeRegExp(str: string): string
 {
-	return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
 /**
@@ -30,7 +30,7 @@ export default class MessageParser
 		//Check if the message starts with the cmd prefix.
 		let msg: string = message.content;
 		
-		let re = new RegExp(`^${escapeRegExp(command.opt('prefix'))}\w*`);
+		let re = new RegExp(`^${escapeRegExp(command.opt('prefix'))}\\w+`);
 		
 		if(re.test(msg))
 		{
