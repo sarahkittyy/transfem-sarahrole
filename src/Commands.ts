@@ -41,7 +41,7 @@ export default class Commands
 		//Init everyhting.
 		this.commands = new Map<string, Command>();
 		this.opts = {
-			prefix: '~$'
+			prefix: '.'
 		};
 		
 		//Automatically implement help() command.
