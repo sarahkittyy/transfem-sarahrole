@@ -99,7 +99,7 @@ export default class Commands
 				let lb = (exists: boolean) => {return exists ? '[' : '{'};
 				let rb = (exists: boolean) => {return exists ? ']' : '}'};
 				value.args.forEach((value: CommandArg) => {
-					argStrings.push(`${lb(value.default)}${value.name}:${value.type}${rb(value.default)}`);
+					argStrings.push(`${lb(value.default)}${value.name}: ${value.type}${rb(value.default)}`);
 				});
 			}
 			commandStrings.push(` - ${this.opts.prefix}${name} ${argStrings.join(' ')} -- ${value.desc}`);
@@ -126,7 +126,7 @@ export default class Commands
 			let lb = (exists: boolean) => {return exists ? '[' : '{'};
 			let rb = (exists: boolean) => {return exists ? ']' : '}'};
 			cmd.args.forEach((value: CommandArg) => {
-				argStrings.push(`${lb(value.default)}${value.name}:${value.type}${rb(value.default)}`);
+				argStrings.push(`${lb(value.default)}${value.name}: ${value.type}${rb(value.default)}`);
 			});
 		}
 		let header: string = `${this.opts.prefix}${command} ${argStrings.join(' ')} -- ${cmd.desc}\n`;
@@ -136,7 +136,7 @@ export default class Commands
 		{
 			argStrings.push('Args:');
 			cmd.args.forEach((value: CommandArg) => {
-				argStrings.push(` - ${value.name}:${value.type} - ${value.desc} ${value.default ? 'Defaults to ' + value.default : ''}.`);
+				argStrings.push(` - ${value.name}: ${value.type} - ${value.desc} ${value.default ? 'Defaults to ' + value.default : ''}.`);
 			});
 		};
 		
