@@ -3,6 +3,7 @@ import * as fs from 'fs';
 
 import Commands from './Commands';
 import MessageParser from './MessageParser';
+import RoleGroups from './RoleGroups';
 
 import {beautifyText} from './EmbedFormatter';
 
@@ -25,6 +26,11 @@ export default class Bot
 	 * The message parser.
 	 */
 	private parser: MessageParser;
+	
+	/**
+	 * The role groups instance.
+	 */
+	private rolegroups: RoleGroups;
 	
 	/**
 	 * Init the bot instance.
@@ -55,9 +61,41 @@ export default class Bot
 			this.bot.login(data.toString())
 		});
 		
+		//Init the role groups.
+		this.rolegroups = new RoleGroups();
+		
 		//Init the commands.
 		this.commands = new Commands();
 		//Init the message parser.
 		this.parser = new MessageParser();
+		
+		this.commands.addCommand('iam', {
+			desc: 'Assign yourself a role',
+			args: [
+				{
+					name: 'Role',
+					desc: 'The role to give yourself',
+					type: 'string'
+				}
+			],
+			callback: (err: Error, msg: Discord.Message, role: string) => {
+				this.rolegroups.assignRole(msg, this.bot, role);
+			}
+			
+		});
+		
+		this.commands.addCommand('iamn', {
+			desc: 'Remove a role from yourself',
+			args: [
+				{
+					name: 'Role',
+					desc: 'The role to take from yourself',
+					type: 'string'
+				}
+			],
+			callback: (err: Error, msg: Discord.Message, role: string) => {
+				this.rolegroups.removeRole(msg, this.bot, role);
+			}
+		});
 	}	
 };

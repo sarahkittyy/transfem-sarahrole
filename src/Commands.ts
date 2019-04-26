@@ -55,9 +55,10 @@ export default class Commands
 					type: 'string'
 				}
 			],
-			callback: (err: Error | null, msg: Discord.Message, command: any) => {
+			callback: (err: Error | null, msg: Discord.Message, ...command: any[]) => {
 				if(err) return;
-				if(command && command.length >= 1)
+				console.log(command);
+				if(command && command.length >= 1 && command[0] !== 'all')
 				{
 					msg.channel.send(beautifyText(this.helpCommand(command[0])));
 				}
