@@ -58,7 +58,7 @@ export default class Bot
 			
 			if(message.content === 'nya')
 			{
-				message.channel.send(`*pats ${message.author.tag}*`);
+				message.channel.send(`*pats <@${message.author.id}>*`);
 				return;
 			}
 			
