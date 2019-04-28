@@ -56,7 +56,7 @@ export default class Bot
 				return;
 			}
 			
-			if(message.content === 'nya')
+			if(/\bnya\b/.test(message.content.toLowerCase()))
 			{
 				message.channel.send(`*pats <@${message.author.id}>*`);
 				return;
