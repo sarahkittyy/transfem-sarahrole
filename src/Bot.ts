@@ -55,6 +55,13 @@ export default class Bot
 			{
 				return;
 			}
+			
+			if(message.content === 'nya')
+			{
+				message.channel.send(`*pats ${message.author.tag}*`);
+				return;
+			}
+			
 			console.log(`received message ${message.content}`);
 			this.parser.parse(message, this.commands);
 		});
