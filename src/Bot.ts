@@ -64,7 +64,7 @@ export default class Bot
 			
 			if(/^potato$/i.test(message.content))
 			{
-				message.channel.send(`potato here's a potato :potato:`);
+				message.channel.send(`.potato here's a potato :potato:`);
 				return;
 			}
 			
