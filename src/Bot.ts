@@ -70,7 +70,7 @@ export default class Bot
 				return;
 			}
 			
-			if(/^me <3$/i.test(message.content))
+			if(/^hewwo yes me$/i.test(message.content))
 			{
 				let compliment = Compliments[message.author.id];
 				if(compliment)
