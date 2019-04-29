@@ -62,7 +62,7 @@ export default class Bot
 				return;
 			}
 			
-			if(/^potato$/i.test(message.content))
+			if(/^potato$/i.test(message.content) && message.author.id === '111541029143867392')
 			{
 				message.channel.send(`.potato here's a potato :potato:`);
 				return;
