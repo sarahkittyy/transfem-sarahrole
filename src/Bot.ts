@@ -1,6 +1,8 @@
 import * as Discord from 'discord.js';
 import * as fs from 'fs';
 
+import * as Compilments from './Compliments.json';
+
 import Commands from './Commands';
 import MessageParser from './MessageParser';
 import RoleGroups from './RoleGroups';
@@ -66,6 +68,16 @@ export default class Bot
 			{
 				message.channel.send(`.potato here's a potato :potato:`);
 				return;
+			}
+			
+			if(/^me <3$/i.test(message.content))
+			{
+				let compliment = Compilments[message.author.id];
+				if(compliment)
+				{
+					message.reply(compliment);
+					return;
+				}
 			}
 			
 			console.log(`received message ${message.content}`);
