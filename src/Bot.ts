@@ -1,7 +1,7 @@
 import * as Discord from 'discord.js';
 import * as fs from 'fs';
 
-import * as Compilments from './Compliments.json';
+import Compilments from './Compliments.json';
 
 import Commands from './Commands';
 import MessageParser from './MessageParser';
