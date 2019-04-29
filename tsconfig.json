@@ -4,7 +4,8 @@
 		"noImplicitAny": true,
 		"target": "es5",
 		"suppressImplicitAnyIndexErrors": true,
-		"downlevelIteration": true
+		"downlevelIteration": true,
+		"resolveJsonModule": true
 	},
 	"exclude": ["gulpfile.js"],
 	"include": ["src/**/*.ts"],

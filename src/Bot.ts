@@ -75,7 +75,7 @@ export default class Bot
 				let compliment = Compilments[message.author.id];
 				if(compliment)
 				{
-					message.reply(compliment);
+					message.reply(beautifyText(`<@${msg.author.id}> ${compliment}`));
 					return;
 				}
 			}
