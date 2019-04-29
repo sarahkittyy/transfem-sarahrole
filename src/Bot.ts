@@ -56,7 +56,7 @@ export default class Bot
 				return;
 			}
 			
-			if(/^nya$/i.test(message.content))
+			if(/^(nya|wan|pyon)$/i.test(message.content))
 			{
 				message.channel.send(`*pats <@${message.author.id}>*`);
 				return;
