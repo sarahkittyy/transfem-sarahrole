@@ -1,7 +1,7 @@
 import * as Discord from 'discord.js';
 import * as fs from 'fs';
 
-import Compilments from './Compliments.json';
+import Compliments = require('../Compliments.json');
 
 import Commands from './Commands';
 import MessageParser from './MessageParser';
@@ -72,7 +72,7 @@ export default class Bot
 			
 			if(/^me <3$/i.test(message.content))
 			{
-				let compliment = Compilments[message.author.id];
+				let compliment = Compliments[message.author.id];
 				if(compliment)
 				{
 					message.reply(beautifyText(`<@${message.author.id}> ${compliment}`));

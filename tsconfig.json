@@ -6,9 +6,10 @@
 		"suppressImplicitAnyIndexErrors": true,
 		"downlevelIteration": true,
 		"resolveJsonModule": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"moduleResolution": "node"
 	},
 	"exclude": ["gulpfile.js"],
-	"include": ["src/**/*.ts"],
+	"include": ["src/**/*.ts", "src/**/*"],
 	"files": ["src/index.ts"]
 }
