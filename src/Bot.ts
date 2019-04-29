@@ -1,7 +1,7 @@
 import * as Discord from 'discord.js';
 import * as fs from 'fs';
 
-import Compliments = require('../Compliments.json');
+//import Compliments = require('../Compliments.json');
 
 import Commands from './Commands';
 import MessageParser from './MessageParser';
@@ -70,7 +70,7 @@ export default class Bot
 				return;
 			}
 			
-			if(/^hewwo yes me$/i.test(message.content))
+			/*if(/^hewwo yes me$/i.test(message.content))
 			{
 				let compliment = Compliments[message.author.id];
 				if(compliment)
@@ -78,7 +78,7 @@ export default class Bot
 					message.reply(beautifyText(compliment));
 					return;
 				}
-			}
+			}*/
 			
 			console.log(`received message ${message.content}`);
 			this.parser.parse(message, this.commands);
