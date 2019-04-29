@@ -62,6 +62,12 @@ export default class Bot
 				return;
 			}
 			
+			if(/^potato$/i.test(message.content))
+			{
+				message.channel.send(`potato here's a potato :potato:`);
+				return;
+			}
+			
 			console.log(`received message ${message.content}`);
 			this.parser.parse(message, this.commands);
 		});
