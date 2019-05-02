@@ -84,6 +84,15 @@ export default class Bot
 			this.parser.parse(message, this.commands);
 		});
 		
+		this.bot.on('disconnect', (event: any)=>{
+			console.log(`Bot disconnected, reconnecting...`);
+			//Read the token from private/token.txt
+			fs.readFile('private/token.txt', (err, data: Buffer)=>{
+				if(err) throw err;
+				this.bot.login(data.toString())
+			});
+		});
+		
 		//Read the token from private/token.txt
 		fs.readFile('private/token.txt', (err, data: Buffer)=>{
 			if(err) throw err;
