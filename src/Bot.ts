@@ -93,6 +93,10 @@ export default class Bot
 			});
 		});
 		
+		this.bot.on('error', (error: Error)=>{
+			console.log(error);
+		});
+		
 		//Read the token from private/token.txt
 		fs.readFile('private/token.txt', (err, data: Buffer)=>{
 			if(err) throw err;
