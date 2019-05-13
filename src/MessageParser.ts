@@ -43,6 +43,10 @@ export default class MessageParser
 			let args = msg.split(' ');
 			//Try to run the command.
 			let state = command.runCommand(message, args[0], ...args.slice(1));
+			
+			//Delete the message!
+			message.delete();
+			
 			if(state === 'args')
 			{
 				//Command didn't work.
