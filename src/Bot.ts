@@ -47,6 +47,8 @@ export default class Bot
 			this.bot.user.setActivity('with sarahpin <3', {
 				type: 'PLAYING'
 			});
+		
+			this.runExtra();
 		});
 		
 		this.bot.on('message', (message: Discord.Message) => {
@@ -101,8 +103,6 @@ export default class Bot
 				this.rolegroups.removeRole(msg, this.bot, role.join(' '));
 			}
 		});
-		
-		this.runExtra();
 	}
 	
 	private runExtra()
