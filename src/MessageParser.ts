@@ -32,6 +32,16 @@ export default class MessageParser
 	{
 		//Check if the message starts with the cmd prefix.
 		let msg: string = message.content;
+
+		let lower: string = msg.toLowerCase();
+		if((lower.startsWith('nya')
+			|| lower.startsWith('wan')
+			|| lower.startsWith('awoo'))
+			&& lower.length <= 4)
+		{
+			message.channel.send(`*pats <@${message.author.id}>*`)
+			return;
+		}
 		
 		let re = new RegExp(`^${escapeRegExp(command.opt('prefix'))}\\w+`);
 		
