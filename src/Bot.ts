@@ -59,12 +59,19 @@ export default class Bot
 			this.parser.parse(message, this.commands);
 		});
 		
-		//Read the token from private/token.txt
-		fs.readFile('private/token.txt', (err, data: Buffer)=>{
-			if(err) throw err;
-			this.bot.login(data.toString().split('\n')[0])
+		function login()
+		{
+			//Read the token from private/token.txt
+			fs.readFile('private/token.txt', (err, data: Buffer)=>{
+				if(err) throw err;
+				this.bot.login(data.toString().split('\n')[0])
+			});
+		}
+		login();
+		this.bot.on('disconnect', () => {
+			login();
 		});
-		
+
 		//Init the role groups.
 		this.rolegroups = new RoleGroups();
 		
