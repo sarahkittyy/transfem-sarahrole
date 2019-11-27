@@ -62,7 +62,7 @@ export default class Bot
 		//Read the token from private/token.txt
 		fs.readFile('private/token.txt', (err, data: Buffer)=>{
 			if(err) throw err;
-			this.bot.login(data.toString())
+			this.bot.login(data.toString().split('\n')[0])
 		});
 		
 		//Init the role groups.
